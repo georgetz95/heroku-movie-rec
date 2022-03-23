@@ -52,7 +52,7 @@ def get_cast(movie_id):
     return names, characters, profile_paths
 
 def movie_details(index):
-    title = fetch_data(index, 'title')
+    movie_title = fetch_data(index, 'title')
     overview = fetch_data(index, 'overview')
     poster = fetch_data(index, 'poster_path')
     year = fetch_data(index, 'year')
@@ -67,7 +67,7 @@ def movie_details(index):
     names, characters, profile_paths = get_cast(fetch_data(index, 'id'))
     
     st.image(poster, use_column_width='never', width=200)
-    st.title(f"{title} ({int(year)})")
+    st.title(f"{movie_title} ({int(year)})")
     st.markdown(f'<b style="font-size:25px">Genres: {genres}</b>', unsafe_allow_html=True)
     st.markdown(f'<b style="font-size:22px">Directed by {director}</b>', unsafe_allow_html=True)
     st.header('Overview')
